@@ -2,6 +2,7 @@ import $ from "jquery";
 import {TemplateService} from "../services/template.service";
 import {RootBlock} from "./blocks/root-block";
 import {CommonBlock} from "./blocks/common-block";
+import {AbsoluteBlock} from "./blocks/absolute-block";
 
 export class ConstructProperties {
     constructor() {
@@ -24,6 +25,9 @@ export class ConstructProperties {
                     break;
                 case 'common':
                     propertiesClass = new CommonBlock(block);
+                    break;
+                case 'absolute':
+                    propertiesClass = new AbsoluteBlock(block);
                     break;
                 default:
                     console.warn(`Properties Class for ${block.type} type is not implemented`)
