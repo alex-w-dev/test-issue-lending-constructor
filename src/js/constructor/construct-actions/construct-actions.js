@@ -36,8 +36,8 @@ export class ConstructActions {
                 TemplateService.changeTemplateTile($titleInput.val());
             });
 
-        TemplateService.siteTemplateTitleChanged.subscribe((title) => $titleInput.val(title));
-        TemplateService.siteTemplateImported.subscribe((template) => $titleInput.val(template.title));
+        TemplateService.siteTemplateTitleChanged$.subscribe((title) => $titleInput.val(title));
+        TemplateService.siteTemplateImported$.subscribe((template) => $titleInput.val(template.title));
 
         $titleContainer.append($titleInput);
         this.$constructorElement.append($titleContainer);
@@ -52,8 +52,8 @@ export class ConstructActions {
                 TemplateService.changeTemplateKeywords($keywordsInput.val());
             });
 
-        TemplateService.siteTemplateKeywordsChanged.subscribe((keywords) => $keywordsInput.val(keywords));
-        TemplateService.siteTemplateImported.subscribe((template) => $keywordsInput.val(template.keywords));
+        TemplateService.siteTemplateKeywordsChanged$.subscribe((keywords) => $keywordsInput.val(keywords));
+        TemplateService.siteTemplateImported$.subscribe((template) => $keywordsInput.val(template.keywords));
 
         $titleContainer.append($keywordsInput);
         this.$constructorElement.append($titleContainer);
@@ -68,8 +68,8 @@ export class ConstructActions {
                 TemplateService.changeTemplateDescription($descriptionInput.text());
             });
 
-        TemplateService.siteTemplateDescriptionChanged.subscribe((description) => $descriptionInput.val(description));
-        TemplateService.siteTemplateImported.subscribe((template) => $descriptionInput.val(template.description));
+        TemplateService.siteTemplateDescriptionChanged$.subscribe((description) => $descriptionInput.val(description));
+        TemplateService.siteTemplateImported$.subscribe((template) => $descriptionInput.val(template.description));
 
         $descriptionContainer.append($descriptionInput);
         this.$constructorElement.append($descriptionContainer);
