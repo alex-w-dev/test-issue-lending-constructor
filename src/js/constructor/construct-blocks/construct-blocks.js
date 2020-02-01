@@ -19,9 +19,6 @@ export class ConstructBlocks {
             this.template = currentTemplate;
             this._rerenderBlocks();
         });
-        TemplateService.siteTemplateBlockChanged$.subscribe((templateBlock) => {
-            this._rerenderBlocks();
-        });
         TemplateService.editingBlock$.subscribe((templateBlock) => {
             this._rerenderBlocks();
         });

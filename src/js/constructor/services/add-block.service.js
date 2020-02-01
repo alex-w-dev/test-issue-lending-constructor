@@ -37,7 +37,7 @@ export class AddBlockService {
                     res({
                         type: 'absolute',
                         title: 'Absolute Block',
-                        height: '200px',
+                        height: '150px',
                         width: '200px',
                         left: '0',
                         top: '0',

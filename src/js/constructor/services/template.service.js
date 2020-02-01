@@ -7,6 +7,8 @@ export const NEW_TEMPLATE = {
     metaKeywords: '',
     metaDescription: '',
     siteWidth: '500px',
+    minHeight: '500px',
+    backgroundColor: '#fff',
     children: [],
 };
 
@@ -99,12 +101,72 @@ export class TemplateService {
 /** @return ISiteTemplate */
 function getTestTemplateWithFillSomeData() {
     return {
-        type: 'root',
-        title: 'Testing site',
-        metaTitle: '',
-        metaKeywords: '',
-        metaDescription: 'Just for initial testing of test issue',
-        siteWidth: '500px',
-        children: [],
+        "type": "root",
+        "title": "Testing site",
+        "metaTitle": "",
+        "metaKeywords": "",
+        "metaDescription": "Just for initial testing of test issue",
+        "siteWidth": "500px",
+        "minHeight": "500px",
+        "backgroundColor": "#fff",
+        "children": [
+            {
+                "type": "common",
+                "title": "Common Block",
+                "height": "200px",
+                "backgroundColor": "#fff",
+                "backgroundImage": "https://cs8.pikabu.ru/post_img/big/2016/11/19/8/1479562735179279674.jpg",
+                "children": [
+                    {
+                        "type": "absolute",
+                        "title": "Absolute Block",
+                        "height": "160px",
+                        "width": "200px",
+                        "left": "0",
+                        "top": "0",
+                        "backgroundColor": "#fff",
+                        "backgroundImage": "https://cs8.pikabu.ru/post_img/big/2016/05/03/0/1462224311122833219.jpg",
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "type": "common",
+                "title": "Common Block",
+                "height": "200px",
+                "backgroundColor": "#fff",
+                "backgroundImage": "https://cs8.pikabu.ru/post_img/big/2016/11/19/8/1479562735179279674.jpg",
+                "children": [
+                    {
+                        "type": "absolute",
+                        "title": "Absolute Block",
+                        "height": "150px",
+                        "width": "200px",
+                        "left": "250px",
+                        "top": "0",
+                        "backgroundColor": "#fff",
+                        "backgroundImage": "https://cs8.pikabu.ru/post_img/big/2016/05/03/0/1462224311122833219.jpg",
+                        "children": [
+                            {
+                                "type": "common",
+                                "title": "Common Block",
+                                "height": "70px",
+                                "backgroundColor": "#fff",
+                                "backgroundImage": "",
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "common",
+                "title": "Common Block",
+                "height": "200px",
+                "backgroundColor": "#fff",
+                "backgroundImage": "https://cs8.pikabu.ru/post_img/big/2016/11/19/8/1479562735179279674.jpg",
+                "children": []
+            }
+        ]
     }
 }

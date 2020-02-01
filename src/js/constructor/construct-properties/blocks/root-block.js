@@ -8,8 +8,6 @@ export class RootBlock extends DefaultBlock{
      * @param { ISiteTemplateBlock } block*/
     constructor(block) {
         super(block);
-
-        console.log(1, '1');
     }
 
     /** @override */
@@ -18,6 +16,8 @@ export class RootBlock extends DefaultBlock{
         this._initMetaKeywordsInput();
         this._initMetaDescriptionInput();
         this._initSiteWidthInput();
+        this._initMinHeightInput();
+        this._initBackgroundColorInput();
     }
 
     /** @private */
@@ -60,6 +60,28 @@ export class RootBlock extends DefaultBlock{
             blockPropertyKey: 'siteWidth',
             placeholder: '1000px',
             label: 'Site Width'
+        });
+        this.$constructorElement.append($metaKeywordsInput);
+    }
+
+    /** @private */
+    _initBackgroundColorInput() {
+        const $metaKeywordsInput = PropertiesInputFactory.getTextInput({
+            block: this.block,
+            blockPropertyKey: 'backgroundColor',
+            placeholder: '#fff',
+            label: 'Site Background Color '
+        });
+        this.$constructorElement.append($metaKeywordsInput);
+    }
+
+    /** @private */
+    _initMinHeightInput() {
+        const $metaKeywordsInput = PropertiesInputFactory.getTextInput({
+            block: this.block,
+            blockPropertyKey: 'minHeight',
+            placeholder: '500px',
+            label: 'Site Minimum Height '
         });
         this.$constructorElement.append($metaKeywordsInput);
     }

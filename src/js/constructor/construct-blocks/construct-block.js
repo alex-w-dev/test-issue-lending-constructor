@@ -74,7 +74,7 @@ export class ConstructBlock {
 
     /** @private */
     _initChildren() {
-        if (!this.block.children) return;
+        if (!this.block.children.length) return;
 
         const $container = $('<div>')
             .css({
