@@ -1,5 +1,6 @@
 import $ from "jquery";
 import {TemplateService} from "../services/template.service";
+import {ConstructBlock} from "./construct-block";
 
 export class ConstructBlocks {
 
@@ -12,10 +13,10 @@ export class ConstructBlocks {
             'background-color': '#ffe7d4',
         });
 
-        /** @type ISiteTemplate['blocks'] */
-        this.templateBlocks;
+        /** @type ISiteTemplate */
+        this.template;
         TemplateService.currentTemplate$.subscribe((currentTemplate) => {
-            this.templateBlocks = currentTemplate.blocks;
+            this.template = currentTemplate;
             this._rerenderBlocks();
         });
         TemplateService.siteTemplateBlockChanged$.subscribe((templateBlock) => {
@@ -29,6 +30,7 @@ export class ConstructBlocks {
         this.$constructorElement.html('');
 
         // render new blocks
-
+        const mainBlock = new ConstructBlock(this.template);
+        this.$constructorElement.append(mainBlock.$constructorElement);
     }
 }

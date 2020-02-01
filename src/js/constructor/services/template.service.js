@@ -1,10 +1,12 @@
 import {Subject, BehaviorSubject} from "rxjs";
 
 export const NEW_TEMPLATE = {
-    title: 'New Site',
-    keywords: '',
-    description: '',
-    blocks: [],
+    type: 'root',
+    title: 'Root Block',
+    metaTitle: 'New Site',
+    metaKeywords: '',
+    metaDescription: '',
+    children: [],
 };
 
 export class TemplateService {
@@ -12,10 +14,6 @@ export class TemplateService {
     /** @static
      * @type { Subject<ISiteTemplate> } */
     static siteTemplateImported$ = new Subject();
-
-    /** @static
-     * @type { Subject<ISiteTemplate['title']> } */
-    static siteTemplateTitleChanged$ = new Subject();
 
     /** @static
      * @type { Subject<ISiteTemplate['keywords']> } */
@@ -39,7 +37,15 @@ export class TemplateService {
 
     /** @static
      * @type { BehaviorSubject<ISiteTemplateBlock> } */
-    static editingBlock$ = new BehaviorSubject(null);
+    static editingBlock$ = new BehaviorSubject(this.currentTemplate);
+
+    /** @static
+     * @type { Subject<ISiteTemplateBlock> } */
+    static blockTitleChanged$ = new Subject();
+
+    /** @static
+     * @type { Subject<ISiteTemplateBlock> } */
+    static blockChanged$ = new Subject();
 
     // METHODS: -----------------------------------------------------------------------
     /** @static */
@@ -53,7 +59,7 @@ export class TemplateService {
         template = JSON.parse(JSON.stringify(template)); // to fix links
         this.currentTemplate = template;
         this.siteTemplateImported$.next(template);
-        this.editingBlock$.next(template.blocks[0] || null);
+        this.editingBlock$.next(template);
     }
 
     /** @static
@@ -64,10 +70,21 @@ export class TemplateService {
     }
 
     /** @static
+     * @param { ISiteTemplateBlock } block
      * @param { string } title */
-    static changeTemplateTile(title) {
-        this.currentTemplate.title = title;
-        this.siteTemplateTitleChanged$.next(title);
+    static updateBlockTile(block, title) {
+        block.title = title;
+        this.blockTitleChanged$.next(block);
+        this.blockChanged$.next(block);
+    }
+
+    /** @static
+     * @param { ISiteTemplateBlock } block
+     * @param { string } propertyKey
+     * @param { * } value */
+    static updateBlockProperty(block, propertyKey, value) {
+        block[propertyKey] = value;
+        this.blockChanged$.next(block);
     }
 
     /** @static
@@ -89,9 +106,11 @@ export class TemplateService {
 /** @return ISiteTemplate */
 function getTestTemplateWithFillSomeData() {
     return {
+        type: 'root',
         title: 'Testing site',
-        keywords: '',
-        description: 'Just for initial testing of test issue',
-        blocks: [],
+        metaTitle: '',
+        metaKeywords: '',
+        metaDescription: 'Just for initial testing of test issue',
+        children: [],
     }
 }
