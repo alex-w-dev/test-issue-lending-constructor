@@ -18,7 +18,7 @@ export class TextBlock extends DefaultBlock{
 
     /** @private */
     _initTextInput() {
-        const $input = PropertiesInputFactory.getTextInput({
+        const $input = PropertiesInputFactory.getTextareaInput({
             block: this.block,
             blockPropertyKey: 'text',
             placeholder: 'Some text',

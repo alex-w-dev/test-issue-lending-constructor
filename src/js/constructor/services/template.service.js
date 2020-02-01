@@ -113,20 +113,28 @@ function getTestTemplateWithFillSomeData() {
             {
                 "type": "common",
                 "title": "Common Block",
-                "height": "200px",
-                "backgroundColor": "#fff",
-                "backgroundImage": "https://cs8.pikabu.ru/post_img/big/2016/11/19/8/1479562735179279674.jpg",
+                "height": "100px",
+                "backgroundColor": "skyBlue",
+                "backgroundImage": "",
                 "children": [
                     {
                         "type": "absolute",
-                        "title": "Absolute Block",
-                        "height": "160px",
-                        "width": "200px",
-                        "left": "0",
-                        "top": "0",
-                        "backgroundColor": "#fff",
-                        "backgroundImage": "https://cs8.pikabu.ru/post_img/big/2016/05/03/0/1462224311122833219.jpg",
-                        "children": []
+                        "title": "Контейнер для текста",
+                        "height": "100px",
+                        "width": "250px",
+                        "left": "160px",
+                        "top": "30px",
+                        "backgroundColor": "transparent",
+                        "backgroundImage": "",
+                        "children": [
+                            {
+                                "type": "text",
+                                "title": "Text Block",
+                                "text": "My web-site!",
+                                "fontSize": "38px",
+                                "children": []
+                            }
+                        ]
                     }
                 ]
             },
@@ -150,9 +158,17 @@ function getTestTemplateWithFillSomeData() {
                             {
                                 "type": "common",
                                 "title": "Common Block",
+                                "height": "30px",
+                                "backgroundColor": "#77a",
+                                "backgroundImage": "",
+                                "children": []
+                            },
+                            {
+                                "type": "common",
+                                "title": "Гугл картинка",
                                 "height": "70px",
                                 "backgroundColor": "#fff",
-                                "backgroundImage": "",
+                                "backgroundImage": "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png",
                                 "children": []
                             }
                         ]
@@ -164,8 +180,16 @@ function getTestTemplateWithFillSomeData() {
                 "title": "Common Block",
                 "height": "200px",
                 "backgroundColor": "#fff",
-                "backgroundImage": "https://cs8.pikabu.ru/post_img/big/2016/11/19/8/1479562735179279674.jpg",
-                "children": []
+                "backgroundImage": "",
+                "children": [
+                    {
+                        "type": "text",
+                        "title": "Обращение",
+                        "text": "Это просто чудо какое-то! Я сделал хреновый конструктор сайта за 8:45 часов (да, взял лишнее время - не хватало доделать текстовый блок и создать этот тестовый шаблон) ... но он мне почему-то нравится! Наверно потому что это был неплохой челлендж! Спасибо за необычную таску! ))",
+                        "fontSize": "18px",
+                        "children": []
+                    }
+                ]
             }
         ]
     }
