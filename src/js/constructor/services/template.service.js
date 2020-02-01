@@ -16,14 +16,6 @@ export class TemplateService {
     static siteTemplateImported$ = new Subject();
 
     /** @static
-     * @type { Subject<ISiteTemplate['keywords']> } */
-    static siteTemplateKeywordsChanged$ = new Subject();
-
-    /** @static
-     * @type { Subject<ISiteTemplate['description']> } */
-    static siteTemplateDescriptionChanged$ = new Subject();
-
-    /** @static
      * @type { Subject<ISiteTemplateBlock> } */
     static siteTemplateBlockChanged$ = new Subject();
 
@@ -85,20 +77,6 @@ export class TemplateService {
     static updateBlockProperty(block, propertyKey, value) {
         block[propertyKey] = value;
         this.blockChanged$.next(block);
-    }
-
-    /** @static
-     * @param { string } keywords */
-    static changeTemplateKeywords(keywords) {
-        this.currentTemplate.keywords = keywords;
-        this.siteTemplateKeywordsChanged$.next(keywords);
-    }
-
-    /** @static
-     * @param { string } description */
-    static changeTemplateDescription(description) {
-        this.currentTemplate.description = description;
-        this.siteTemplateDescriptionChanged$.next(description);
     }
 }
 

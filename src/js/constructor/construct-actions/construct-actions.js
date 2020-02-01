@@ -12,6 +12,7 @@ export class ConstructActions {
         });
 
         this._initActionNew();
+        this._initActionExport();
     }
 
     /** @private */
@@ -22,6 +23,28 @@ export class ConstructActions {
             });
 
         this.$constructorElement.append($actionNew);
+    }
+
+    /** @private */
+    _initActionExport() {
+        const $actionExport = $('<button>Export as JSON</button>')
+            .on('click',() => {
+                var a = document.createElement("a");
+                document.body.appendChild(a);
+                a.style = "display: none";
+
+                var json = JSON.stringify(TemplateService.currentTemplate, null, 2),
+                    blob = new Blob([json], {type: "octet/stream"}),
+                    url = window.URL.createObjectURL(blob);
+                a.href = url;
+                a.download = 'my-web-site.json';
+                a.click();
+                window.URL.revokeObjectURL(url);
+
+                document.body.removeChild(a);
+            });
+
+        this.$constructorElement.append($actionExport);
     }
 
 }
