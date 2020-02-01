@@ -22,6 +22,9 @@ export class ConstructBlocks {
         TemplateService.siteTemplateBlockChanged$.subscribe((templateBlock) => {
             this._rerenderBlocks();
         });
+        TemplateService.editingBlock$.subscribe((templateBlock) => {
+            this._rerenderBlocks();
+        });
     }
 
     /** @private */

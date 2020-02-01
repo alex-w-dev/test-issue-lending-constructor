@@ -6,6 +6,7 @@ export const NEW_TEMPLATE = {
     metaTitle: 'New Site',
     metaKeywords: '',
     metaDescription: '',
+    siteWidth: '500px',
     children: [],
 };
 
@@ -50,6 +51,7 @@ export class TemplateService {
     static importTemplate(template) {
         template = JSON.parse(JSON.stringify(template)); // to fix links
         this.currentTemplate = template;
+        this.currentTemplate$.next(template);
         this.siteTemplateImported$.next(template);
         this.editingBlock$.next(template);
     }
@@ -78,6 +80,19 @@ export class TemplateService {
         block[propertyKey] = value;
         this.blockChanged$.next(block);
     }
+
+    /** @static
+     * @param { ISiteTemplateBlock } block
+     * @param { ISiteTemplateBlock } child */
+    static addBlockChild(block, child) {
+        console.log(33, '33');
+        block.children.push(child);
+
+        // TODO fix in future
+        child.children = [];
+
+        this.startEditBlock(child);
+    }
 }
 
 
@@ -89,6 +104,7 @@ function getTestTemplateWithFillSomeData() {
         metaTitle: '',
         metaKeywords: '',
         metaDescription: 'Just for initial testing of test issue',
+        siteWidth: '500px',
         children: [],
     }
 }

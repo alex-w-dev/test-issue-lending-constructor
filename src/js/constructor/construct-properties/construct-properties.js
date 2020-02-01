@@ -1,9 +1,9 @@
 import $ from "jquery";
 import {TemplateService} from "../services/template.service";
 import {RootBlock} from "./blocks/root-block";
+import {CommonBlock} from "./blocks/common-block";
 
 export class ConstructProperties {
-
     constructor() {
         /** @type { JQuery } */
         this.$constructorElement = $('<div>');
@@ -21,7 +21,9 @@ export class ConstructProperties {
             switch (block.type) {
                 case 'root':
                     propertiesClass = new RootBlock(block);
-                    console.log(4, '4');
+                    break;
+                case 'common':
+                    propertiesClass = new CommonBlock(block);
                     break;
                 default:
                     console.warn(`Properties Class for ${block.type} type is not implemented`)

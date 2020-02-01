@@ -17,6 +17,7 @@ export class RootBlock extends DefaultBlock{
         this._initMetaTitleInput();
         this._initMetaKeywordsInput();
         this._initMetaDescriptionInput();
+        this._initSiteWidthInput();
     }
 
     /** @private */
@@ -48,6 +49,17 @@ export class RootBlock extends DefaultBlock{
             blockPropertyKey: 'metaDescription',
             placeholder: 'Fill description of your site there ...',
             label: 'Site Description'
+        });
+        this.$constructorElement.append($metaKeywordsInput);
+    }
+
+    /** @private */
+    _initSiteWidthInput() {
+        const $metaKeywordsInput = PropertiesInputFactory.getTextInput({
+            block: this.block,
+            blockPropertyKey: 'siteWidth',
+            placeholder: '1000px',
+            label: 'Site Width'
         });
         this.$constructorElement.append($metaKeywordsInput);
     }

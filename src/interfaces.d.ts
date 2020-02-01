@@ -1,4 +1,4 @@
-export type ISiteTemplateBlockType = 'header' | 'common'| 'root' | 'slide-show' | 'footer';
+export type ISiteTemplateBlockType = 'root' | 'common' | 'absolute' | 'link' | 'text' | 'slide-show' | 'image';
 
 export interface ISiteTemplateBlock {
   type: ISiteTemplateBlockType;
@@ -13,16 +13,5 @@ export interface ISiteTemplate extends ISiteTemplateBlock {
   metaDescription: string;
 }
 
-export interface IHeaderTemplateBlock extends ISiteTemplateBlock {
-  type: 'header';
-}
-
-export interface IRootTemplateBlock extends ISiteTemplateBlock {
-  type: 'root';
-  width: string;
-}
-
-export interface ICommonTemplateBlock extends ISiteTemplateBlock {
-  type: 'common';
-  height: number;
-}
+// TODO declare all block types! which extends ISiteTemplateBlock
+// example commonBLock absoluteBlock etc.

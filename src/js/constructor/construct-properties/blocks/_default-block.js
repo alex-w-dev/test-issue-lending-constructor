@@ -15,6 +15,8 @@ export class DefaultBlock {
         /**  @type ISiteTemplateBlock */
         this.block;
         TemplateService.editingBlock$.subscribe((block) => {
+            console.log(666666, '666666');
+            console.log(block.title, 'block.title');
             this.block = block;
             this._clearContent();
             this._initContent();
