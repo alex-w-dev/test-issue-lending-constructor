@@ -1,6 +1,6 @@
 import $ from "jquery";
 
-export class ConstructProperties {
+export class ConstructActions {
 
     constructor() {
         /** @type { JQuery } */
@@ -8,7 +8,7 @@ export class ConstructProperties {
         this.$constructorElement.css({
             'width': '100%',
             'height': '100%',
-            'background-color': '#ffe7d4',
+            'background-color': '#d0ffe4',
         });
     }
 }
