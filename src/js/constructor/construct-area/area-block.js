@@ -63,6 +63,15 @@ export class AreaBlock {
                 });
 
                 break;
+
+            case "text":
+                this.$constructorElement.css({
+                    'display': 'inline',
+                    'font-size': this.block.fontSize,
+                });
+                this.$constructorElement.text(this.block.text);
+
+                break;
             default:
                 console.warn('AreBlock was not implemented for' + this.block.type + ' block type');
         }

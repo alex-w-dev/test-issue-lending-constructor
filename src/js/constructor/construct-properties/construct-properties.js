@@ -3,6 +3,7 @@ import {TemplateService} from "../services/template.service";
 import {RootBlock} from "./blocks/root-block";
 import {CommonBlock} from "./blocks/common-block";
 import {AbsoluteBlock} from "./blocks/absolute-block";
+import {TextBlock} from "./blocks/text-block";
 
 export class ConstructProperties {
     constructor() {
@@ -28,6 +29,9 @@ export class ConstructProperties {
                     break;
                 case 'absolute':
                     propertiesClass = new AbsoluteBlock(block);
+                    break;
+                case 'text':
+                    propertiesClass = new TextBlock(block);
                     break;
                 default:
                     console.warn(`Properties Class for ${block.type} type is not implemented`)

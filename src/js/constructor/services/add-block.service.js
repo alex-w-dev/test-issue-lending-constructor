@@ -46,14 +46,14 @@ export class AddBlockService {
                     })
                 });
             const $addText = $('<button>')
-                .text('Text Block (not implemented)')
-                .attr({ 'disabled': true })
+                .text('Text Block')
                 .on('click', () => {
                     $.modal.close();
                     res({
                         type: 'text',
                         title: 'Text Block',
-                        text: 'Some text!'
+                        text: 'Your Text',
+                        fontSize: '18px'
                     })
                 });
             const $addLink = $('<button>')
