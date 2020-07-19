@@ -16,7 +16,7 @@
   "dependencies": {
     "jquery": "^3.4.1",
     "jquery-modal": "^0.9.2",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "rxjs": "^6.5.4"
   },
   "devDependencies": {
